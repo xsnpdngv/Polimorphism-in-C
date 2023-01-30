@@ -8,6 +8,7 @@ typedef struct developer
 {
     const developerFuncs_t *vptr;
     // attributes ...
+    int developerAttr;
 
 } developer_t;
 
