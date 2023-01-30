@@ -4,7 +4,6 @@
 typedef struct
 {
     developer_t base;
-    // extra attributes
     int seniorDeveloperAttr;
 
 } seniorDeveloper_t;

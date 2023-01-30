@@ -42,15 +42,15 @@ void developerBuild(void *developer/* args */)
 }
 
 
-static __typeof__(*developerFuncs()->destroy) developerDestroyBase;
 static __typeof__(*developerFuncs()->writeCode) developerWriteCodeBase;
+static __typeof__(*developerFuncs()->destroy) developerDestroyBase;
 
 const developerFuncs_t *developerFuncs(void)
 {
     static developerFuncs_t funcs =
     {
-        .destroy = developerDestroyBase,
         .writeCode = developerWriteCodeBase,
+        .destroy = developerDestroyBase,
         .isInitialized = 1
     };
 
@@ -60,17 +60,16 @@ const developerFuncs_t *developerFuncs(void)
 
 // private:
 
-static void developerDestroyBase(void *developer)
-{
-    fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
-    free(developer);
-}
-
-
 static void developerWriteCodeBase(void *developer, const char *specification)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     (void)developer;
     (void)specification;
     printf("printf(\"Hello World!\\n\"); /* Base */\n");
+}
+
+static void developerDestroyBase(void *developer)
+{
+    fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
+    free(developer);
 }

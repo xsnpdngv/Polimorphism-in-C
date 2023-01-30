@@ -6,8 +6,8 @@
 
 struct developerFuncs
 {
-    void (*destroy)(void *developer);
     void (*writeCode)(void *developer, const char *specification);
+    void (*destroy)(void *developer);
     int isInitialized;
 };
 
