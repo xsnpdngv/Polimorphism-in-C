@@ -1,7 +1,7 @@
-project(polimorphism-in-c)
+project(polymorphism-in-c)
 
-add_executable( poli_main
-  poli_main.c
+add_executable( poly_main
+  poly_main.c
   developer.c
   senior_developer.c
 )

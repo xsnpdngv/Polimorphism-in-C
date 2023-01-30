@@ -1,2 +1,2 @@
-# Polimorphism-in-C
-Possible way to implement polimorphism in C
+# Polymorphism-in-C
+Possible way to implement polymorphism in C
