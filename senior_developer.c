@@ -48,7 +48,7 @@ static void seniorDeveloperWriteCode(void *developer, const char *specification)
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     (void)developer;
     (void)specification;
-    fprintf(stdout, "fprintf(stdout, \"Hello World!\\n\"); // Descendant\n");
+    fprintf(stdout, "Senior Developer version of Hello World! (Descendant implementation)\n");
 }
 
 static void seniorDeveloperDestroy(void *developer)

@@ -65,7 +65,7 @@ static void developerWriteCodeBase(void *developer, const char *specification)
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     (void)developer;
     (void)specification;
-    printf("printf(\"Hello World!\\n\"); /* Base */\n");
+    printf("Developer version of Hello World! (Base implementation)\n");
 }
 
 static void developerDestroyBase(void *developer)
