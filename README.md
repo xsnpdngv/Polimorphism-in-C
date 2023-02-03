@@ -31,8 +31,8 @@ Saying _"Polymorphism can be achieved by using switch statements
 or long if/else chains within a function."_ would be true without
 the following addition:
 
->  "The mechanism of polymorphism must not create a source code dependency
-   from the caller to the callee."
+>  The mechanism of polymorphism must not create a source code
+   dependency from the caller to the callee.
 
 We desire systems built with dynamic polymorphism because they are
 strongly decoupled. Dependencies can be inverted across architectural
@@ -44,7 +44,7 @@ modules. This makes such systems much easier to change and improve.
 Goal
 ----
 
-Desire to have something like this in C:
+To have something like this in C
 
 ```c++
 Developer *developer = new SeniorDeveloper{};
@@ -52,7 +52,7 @@ developer->WriteCode("hello world");
 delete developer;
 ```
 
-For example in the following way:
+..for example in the following way:
 
 ```c
 developer_t *developer = (developer_t *)seniorDeveloper_Create();
@@ -84,3 +84,18 @@ In other words, what we want is to have the objects of our subclasses
 behaving the same way as the objects of our superclass.
 
 Rubberduck example explains what LSP suggests to avoid.
+
+
+Run
+---
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./poly_main
+
+# 2>/dev/null to print only WriteCode()'s outout
+# >/dev/null to print only function callings
+```
