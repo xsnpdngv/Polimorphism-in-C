@@ -1,3 +1,8 @@
+# mkdir build
+# cd build
+# cmake ..
+# make
+
 project(polymorphism-in-c)
 
 add_executable( poly_main

@@ -11,8 +11,8 @@ typedef struct developer
 
 } developer_t;
 
-developer_t *developerCreate(/* args */);
-void developerDestroy(void *developer);
-void developerWriteCode(void *developer, const char *specification);
+developer_t *developer_Create(/* args */);
+void developer_Destroy(void *developer);
+void developer_WriteCode(void *developer, const char *specification);
 
 #endif // DEVELOPER_H_

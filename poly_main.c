@@ -5,25 +5,25 @@
 
 int main()
 {
-    developer_t *developer = developerCreate();
-    developerWriteCode(developer, "hello world");
+    developer_t *developer = developer_Create();
+    developer_WriteCode(developer, "hello world");
     // developer->developerAttr
-    developerDestroy(developer);
+    developer_Destroy(developer);
 
     fprintf(stderr, "----------------------\n");
 
-    seniorDeveloper_t *seniorDeveloper = seniorDeveloperCreate();
-    developerWriteCode(seniorDeveloper, "hello world");
+    seniorDeveloper_t *seniorDeveloper = seniorDeveloper_Create();
+    developer_WriteCode(seniorDeveloper, "hello world");
     // ((developer_t *)seniorDeveloper)->developerAttr
     // seniorDeveloper->base.developerAttr
     // seniorDeveloper->seniorDeveloperAttr
-    developerDestroy(seniorDeveloper);
+    developer_Destroy(seniorDeveloper);
 
     fprintf(stderr, "----------------------\n");
 
-    developer_t *anyDeveloper = (developer_t *)seniorDeveloperCreate();
-    developerWriteCode(anyDeveloper, "hello world");
+    developer_t *anyDeveloper = (developer_t *)seniorDeveloper_Create();
+    developer_WriteCode(anyDeveloper, "hello world");
     // developer->developerAttr
-    developerDestroy(anyDeveloper);
+    developer_Destroy(anyDeveloper);
     fprintf(stderr, "\n");
 }

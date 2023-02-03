@@ -6,16 +6,16 @@
 #include <stdio.h>
 
 
-static const developerFuncs_t *seniorDeveloperFuncs(void);
+static const developerFuncs_t *seniorDeveloper_Funcs(void);
 
 // public:
 
-seniorDeveloper_t *seniorDeveloperCreate(/* args */)
+seniorDeveloper_t *seniorDeveloper_Create(/* args */)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     seniorDeveloper_t *seniorDeveloper = malloc(sizeof(seniorDeveloper_t));
-    developerBuild(seniorDeveloper/* args */); // inherit
-    ((developer_t *)seniorDeveloper)->vptr = seniorDeveloperFuncs();
+    developer_Build(seniorDeveloper/* args */); // inherit
+    ((developer_t *)seniorDeveloper)->vptr = seniorDeveloper_Funcs();
     // ...
 
     return seniorDeveloper;
@@ -24,18 +24,18 @@ seniorDeveloper_t *seniorDeveloperCreate(/* args */)
 
 // private:
 
-static __typeof__(*developerFuncs()->writeCode) seniorDeveloperWriteCode;
-static __typeof__(*developerFuncs()->destroy) seniorDeveloperDestroy;
+static __typeof__(*developer_Funcs()->writeCode) seniorDeveloper_WriteCode;
+static __typeof__(*developer_Funcs()->destroy) seniorDeveloper_Destroy;
 
-static const developerFuncs_t *seniorDeveloperFuncs(void)
+static const developerFuncs_t *seniorDeveloper_Funcs(void)
 {
     static developerFuncs_t funcs = {};
     if( ! funcs.isInitialized)
     {   // inherit
-        funcs = *developerFuncs();
+        funcs = *developer_Funcs();
         // override
-        funcs.writeCode = seniorDeveloperWriteCode;
-        funcs.destroy = seniorDeveloperDestroy;
+        funcs.writeCode = seniorDeveloper_WriteCode;
+        funcs.destroy = seniorDeveloper_Destroy;
     }
 
     return &funcs;
@@ -43,7 +43,7 @@ static const developerFuncs_t *seniorDeveloperFuncs(void)
 
 // virtual method overrides
 
-static void seniorDeveloperWriteCode(void *developer, const char *specification)
+static void seniorDeveloper_WriteCode(void *developer, const char *specification)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     (void)developer;
@@ -51,7 +51,7 @@ static void seniorDeveloperWriteCode(void *developer, const char *specification)
     fprintf(stdout, "Senior Developer version of Hello World! (Descendant implementation)\n");
 }
 
-static void seniorDeveloperDestroy(void *developer)
+static void seniorDeveloper_Destroy(void *developer)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     free(developer);

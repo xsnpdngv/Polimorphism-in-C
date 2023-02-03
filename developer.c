@@ -9,23 +9,23 @@
 
 // public:
 
-developer_t *developerCreate(/* args */)
+developer_t *developer_Create(/* args */)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     developer_t *developer = malloc(sizeof(developer_t));
-    developerBuild(developer/* args */);
+    developer_Build(developer/* args */);
     return developer;
 }
 
 
-void developerDestroy(void *developer)
+void developer_Destroy(void *developer)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     ((developer_t *)developer)->vptr->destroy(developer);
 }
 
 
-void developerWriteCode(void *developer, const char *specification)
+void developer_WriteCode(void *developer, const char *specification)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     ((developer_t *)developer)->vptr->writeCode(developer, specification);
@@ -34,23 +34,23 @@ void developerWriteCode(void *developer, const char *specification)
 
 // protected:
 
-void developerBuild(void *developer/* args */)
+void developer_Build(void *developer/* args */)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     memset(developer, 0, sizeof(developer_t));
-    ((developer_t *)developer)->vptr = developerFuncs();
+    ((developer_t *)developer)->vptr = developer_Funcs();
 }
 
 
-static __typeof__(*developerFuncs()->writeCode) developerWriteCodeBase;
-static __typeof__(*developerFuncs()->destroy) developerDestroyBase;
+static __typeof__(*developer_Funcs()->writeCode) developer_WriteCodeBase;
+static __typeof__(*developer_Funcs()->destroy) developer_DestroyBase;
 
-const developerFuncs_t *developerFuncs(void)
+const developerFuncs_t *developer_Funcs(void)
 {
     static developerFuncs_t funcs =
     {
-        .writeCode = developerWriteCodeBase,
-        .destroy = developerDestroyBase,
+        .writeCode = developer_WriteCodeBase,
+        .destroy = developer_DestroyBase,
         .isInitialized = 1
     };
 
@@ -60,7 +60,7 @@ const developerFuncs_t *developerFuncs(void)
 
 // private:
 
-static void developerWriteCodeBase(void *developer, const char *specification)
+static void developer_WriteCodeBase(void *developer, const char *specification)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     (void)developer;
@@ -68,7 +68,7 @@ static void developerWriteCodeBase(void *developer, const char *specification)
     printf("Developer version of Hello World! (Base implementation)\n");
 }
 
-static void developerDestroyBase(void *developer)
+static void developer_DestroyBase(void *developer)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     free(developer);

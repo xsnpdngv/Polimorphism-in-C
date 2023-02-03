@@ -11,7 +11,7 @@ struct developerFuncs
     int isInitialized;
 };
 
-const developerFuncs_t *developerFuncs();
-void developerBuild(void *developer/* args */);
+const developerFuncs_t *developer_Funcs();
+void developer_Build(void *developer/* args */);
 
 #endif // DEVELOPER_PRIVATE_H_

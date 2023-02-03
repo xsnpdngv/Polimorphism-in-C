@@ -8,5 +8,5 @@ typedef struct
 
 } seniorDeveloper_t;
 
-seniorDeveloper_t *seniorDeveloperCreate(/* args */);
-// developerXxx() functions are applicable
+seniorDeveloper_t *seniorDeveloper_Create(/* args */);
+// developer_Xxx() functions are applicable
