@@ -68,13 +68,28 @@ Hence the aim is to make possible to
 of a type/class/struct.
 
 
-Liskov Substitution Principle (LSP)
------------------------------------
+SOLID Aspects
+-------------
 
 SOLID gives 5 software design principles to build understandable,
-flexible and maintainable (Object Oriented) code. In this mnemonic L
-stands for Liskov Substitution Principle, which is strongly related to
-polymorphism, and is worth keeping in mind.
+flexible and maintainable (Object Oriented) code. In this mnemonic O
+is for Open/Closed Principle, L is for Liskov Substitution Principle.
+Both are strongly related to polymorphism.
+
+
+### O: Open/Closed Principle
+
+Software entities (classes, modules, functions, etc.) should be open for
+extension, but closed for modification.
+
+A class is closed, since it may be compiled, stored in a library,
+baselined, and used by client classes. But it is also open, since any
+new class may use it as parent, adding new features. When a descendant
+class is defined, there is no need to change the original or to disturb
+its clients.
+
+
+### L: Liskov Substitution Principle (LSP)
 
 The Liskov Substitution Principle (LSP) states that objects of a
 superclass should be replaceable with objects of its subclasses without
@@ -84,6 +99,7 @@ In other words, what we want is to have the objects of our subclasses
 behaving the same way as the objects of our superclass.
 
 Rubberduck example explains what LSP suggests to avoid.
+
 
 
 Run
