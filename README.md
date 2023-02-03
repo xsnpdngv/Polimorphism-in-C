@@ -96,6 +96,6 @@ cmake ..
 make
 ./poly_main
 
-# 2>/dev/null to print only WriteCode()'s outout
+# 2>/dev/null to print only WriteCode()'s output
 # >/dev/null to print only function callings
 ```
