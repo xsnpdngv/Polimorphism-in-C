@@ -71,14 +71,14 @@ of a type/class/struct.
 Liskov Substitution Principle (LSP)
 -----------------------------------
 
-SOLID gives 5 software desing principles to build understandable,
+SOLID gives 5 software design principles to build understandable,
 flexible and maintainable (Object Oriented) code. In this mnemonic L
-stands for Liskov, which is strongly related to polymorphism, and is
-worth keeping in mind.
+stands for Liskov Substitution Principle, which is strongly related to
+polymorphism, and is worth keeping in mind.
 
 The Liskov Substitution Principle (LSP) states that objects of a
 superclass should be replaceable with objects of its subclasses without
-breaking the application. 
+breaking the application.
 
 In other words, what we want is to have the objects of our subclasses
 behaving the same way as the objects of our superclass.
