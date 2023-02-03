@@ -9,4 +9,5 @@ typedef struct
 } seniorDeveloper_t;
 
 seniorDeveloper_t *seniorDeveloper_Create(/* args */);
-// developer_Xxx() functions are applicable
+void developer_Destroy(void *developer) /* override */;
+void developer_WriteCode(void *developer, const char *specification) /* override */;

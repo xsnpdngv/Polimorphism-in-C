@@ -12,7 +12,7 @@
 developer_t *developer_Create(/* args */)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
-    developer_t *developer = malloc(sizeof(developer_t));
+    developer_t *developer = malloc(sizeof(developer_t)); // like `new` in C++
     developer_Build(developer/* args */);
     return developer;
 }
@@ -38,23 +38,24 @@ void developer_Build(void *developer/* args */)
 {
     fprintf(stderr, "%s\n", __PRETTY_FUNCTION__);
     memset(developer, 0, sizeof(developer_t));
-    ((developer_t *)developer)->vptr = developer_Funcs();
+    ((developer_t *)developer)->vptr = developer_Vptr(); // reach the virtual table
 }
 
 
-static __typeof__(*developer_Funcs()->writeCode) developer_WriteCodeBase;
-static __typeof__(*developer_Funcs()->destroy) developer_DestroyBase;
+// declarations of the actual implementations of the virtual methods
+static __typeof__(*developer_Vptr()->writeCode) developer_WriteCodeBase;
+static __typeof__(*developer_Vptr()->destroy) developer_DestroyBase;
 
-const developerFuncs_t *developer_Funcs(void)
+const developerVtbl_t *developer_Vptr(void)
 {
-    static developerFuncs_t funcs =
+    static developerVtbl_t vtbl =
     {
         .writeCode = developer_WriteCodeBase,
         .destroy = developer_DestroyBase,
         .isInitialized = 1
     };
 
-    return &funcs;
+    return &vtbl;
 }
 
 

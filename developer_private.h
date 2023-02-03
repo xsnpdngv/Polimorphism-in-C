@@ -4,14 +4,14 @@
 
 #include "developer.h"
 
-struct developerFuncs
+struct developerVtbl
 {
     void (*writeCode)(void *developer, const char *specification);
     void (*destroy)(void *developer);
     int isInitialized;
 };
 
-const developerFuncs_t *developer_Funcs();
+const developerVtbl_t *developer_Vptr(); // access to the virtual table
 void developer_Build(void *developer/* args */);
 
 #endif // DEVELOPER_PRIVATE_H_
