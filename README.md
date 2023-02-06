@@ -47,7 +47,7 @@ Goal
 To have something like this in C
 
 ```c++
-Developer *developer = new SeniorDeveloper{};
+Developer *developer = new SeniorDeveloper();
 developer->WriteCode("hello world");
 delete developer;
 ```

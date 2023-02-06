@@ -3,7 +3,10 @@
 
 typedef struct
 {
-    developer_t base;
+    union {
+        developerVtbl_t *vptr;
+        developer_t base;
+    };
     int seniorDeveloperAttr;
 
 } seniorDeveloper_t;
